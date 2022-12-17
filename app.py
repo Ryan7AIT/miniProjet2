@@ -91,30 +91,67 @@ def doGetData():
 	#data_JSON = json.dumps(data2)	
 	#sreturn data_JSON 	
 	
+
+
+@app.route('/api/data3')
+def doGetData3():
+	conn = mysql.connect()	
+	cursor =conn.cursor()	
+	cursor.execute("SELECT count(*) as number, sexe  FROM resultats  group by sexe")	
+
+	data = cursor.fetchall()	
+	row_headers=[x[0] for x in cursor.description]
+
+	cursor.close()
+
+	json_data=[]
+	for result in data:
+		json_data.append(dict(zip(row_headers,result)))					
+					
+	return jsonify(json_data)
 	
-# @app.route('/api/data2')
-# def doGetData2():
+	#data_JSON = json.dumps(data2)	
+	#sreturn data_JSON 	
+
+
+
+
+@app.route('/api/data2')
+def doGetData2():
 	
 	data = {"years":[], "datasets":[]}
 	
 	conn = mysql.connect()	
 	cursor =conn.cursor()	
-	cursor.execute("SELECT DISTINCT years FROM population_stats")	
+	cursor.execute("SELECT DISTINCT annee FROM resultats")	
 
 	years_tuple = cursor.fetchall()
 	years_list =  [item[0] for item in years_tuple]
 	data["years"]=years_list	
 
-	cursor.execute("SELECT DISTINCT region FROM population_stats")	
+	cursor.execute("SELECT DISTINCT specialite FROM resultats")	
 
 	region_tuple = cursor.fetchall()
 	region_list =  [item[0] for item in region_tuple]
 	
 	for region in region_list:
-		cursor.execute("SELECT population FROM population_stats WHERE region='"+region+"'")	
+		# cursor.execute("SELECT population FROM population_stats WHERE region='"+region+"'")	
+		cursor.execute("SELECT count(*) as number  FROM  resultats   WHERE specialite='"+region+"'")	
+
 		population_tuple = cursor.fetchall()
+
+		c=[]
+
+		for y in years_list:
+			cursor.execute("SELECT count(*) as number  FROM  resultats   WHERE specialite='"+region+"' and annee='"+str(y)+"' ")	
+
+			student_by_year = cursor.fetchall()
+			student_by_year_list = [item[0] for item in student_by_year]
+
+			c.append(student_by_year_list[0])
+		
 		population_list =  [item[0] for item in population_tuple]
-		data["datasets"].append({"label":region, "data":population_list})	
+		data["datasets"].append({"label":region, "data":c})	
 	
 	data_JSON = json.dumps(data)	
 	return data_JSON 	

@@ -15,46 +15,39 @@ function loadData(){
 		}
 	};
 	httpRequest.send();
-	
-}
 
-
-function update_Bars(jsonData){	
-
-	var labels = jsonData.map(function(e) {
-	   return e.specilite;
-	});
-	
-	var data = jsonData.map(function(e) {
-	   return e.nom;
-	});
-	
-	
-	new Chart(document.getElementById("bar-chart"), {
-		type: 'bar',
-		data: {
-		  labels: labels,
-		  datasets: [
-			{
-			  label: "Population (millions)",
-			  backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-			  data: data
-			}
-		  ]
-		},
-		options: {
-		  responsive: false,
-		  maintainAspectRatio: true,	
-		  legend: { display: false },
-		  title: {
-			display: true,
-			text: 'Predicted world population (millions) in 2050'
-		  }
+	httpRequest2 = new XMLHttpRequest();	
+	httpRequest2.open('GET', '/api/data2');
+	httpRequest2.onreadystatechange = function () {
+		if (httpRequest2.readyState === 4 && httpRequest2.status === 200) {
+			jsonData2 = JSON.parse(httpRequest2.response);
+			update_Lines(jsonData2);
 		}
-	});
+	};
+	httpRequest2.send();
+
+	httpRequest3 = new XMLHttpRequest();	
+	httpRequest3.open('GET', '/api/data3');
+	httpRequest3.onreadystatechange = function () {
+		if (httpRequest3.readyState === 4 && httpRequest3.status === 200) {
+			jsonData1 = JSON.parse(httpRequest3.response);
+			update_Pie(jsonData1);
+		}
+	};
+	httpRequest3.send();
+
+
+
+
+
+	
 }
+
+
+
 
 function update_Lines(jsonData){
+	console.log(jsonData);
 	var labels = jsonData.years;
 	
 	for(d of jsonData.datasets){
@@ -77,7 +70,7 @@ function update_Lines(jsonData){
 			maintainAspectRatio: true,
 			title: {
 				display: false,
-				text: 'World population per region (in millions)'
+				text: 'Univerty sytendt by major (in millions)'
 			},
 			legend:{
 				position:'top'
@@ -86,38 +79,7 @@ function update_Lines(jsonData){
 	});
 }
 
-function update_Pie(jsonData){
-	var labels = jsonData.map(function(e) {
-	   return e.region;
-	});
-	
-	var data = jsonData.map(function(e) {
-	   return e.population;
-	});
-	
-	new Chart(document.getElementById("pie-chart"), {
-		type: 'pie',
-		data: {
-		  labels: labels,
-		  datasets: [{
-			label: "Population (millions)",
-			backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#d3b37e","#c45850"],
-			data: data
-		  }]
-		},
-		options: {
-		  responsive: false,
-		  maintainAspectRatio: true,
-		  title: {
-			display: false,
-			text: 'Predicted world population (millions) in 2050'
-		  },
-		  legend:{
-			position:'right'
-		  }
-		}
-	});	
-}
+
 
 
 function update_BigNumbers(jsonData){	
@@ -137,6 +99,41 @@ function update_BigNumbers(jsonData){
 	
 	
 }
+
+
+function update_Pie(jsonData){
+	var labels = jsonData.map(function(e) {
+	   return e.sexe;
+	});
+	
+	var data = jsonData.map(function(e) {
+	   return e.number;
+	});
+	
+	new Chart(document.getElementById("pie-chart"), {
+		type: 'pie',
+		data: {
+		  labels: labels,
+		  datasets: [{
+			label: "Population (millions)",
+			backgroundColor: ["#3e95cd", "#8e5ea2"],
+			data: data
+		  }]
+		},
+		options: {
+		  responsive: false,
+		  maintainAspectRatio: true,
+		  title: {
+			display: false,
+			text: 'number of student by sex'
+		  },
+		  legend:{
+			position:'right'
+		  }
+		}
+	});	
+}
+
 
 
 
