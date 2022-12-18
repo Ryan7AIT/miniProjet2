@@ -156,7 +156,70 @@ def doGetData2():
 	data_JSON = json.dumps(data)	
 	return data_JSON 	
 
-	
+# new
+
+#number of total students
+
+@app.route('/api/data4')
+def doGetData4():
+	conn = mysql.connect()	
+	cursor =conn.cursor()	
+	cursor.execute("select count(*) as number from resultats ")	
+
+	data = cursor.fetchall()	
+	row_headers=[x[0] for x in cursor.description]
+
+	cursor.close()
+
+	json_data=[]
+	for result in data:
+		json_data.append(dict(zip(row_headers,result)))					
+					
+	return jsonify(json_data)
+
+
+#number of new students
+
+@app.route('/api/data5')
+def doGetData5():
+	conn = mysql.connect()	
+	cursor =conn.cursor()	
+	cursor.execute("select count(*) as number from resultats WHERE annee = 2021 ")	
+
+	data = cursor.fetchall()	
+	row_headers=[x[0] for x in cursor.description]
+
+	cursor.close()
+
+	json_data=[]
+	for result in data:
+		json_data.append(dict(zip(row_headers,result)))					
+					
+	return jsonify(json_data)
+
+
+# number of stuetsnt by major 
+
+
+@app.route('/api/data6')
+def doGetData6():
+	conn = mysql.connect()	
+	cursor =conn.cursor()	
+	cursor.execute("select count(*) as number,  specialite from resultats group by specialite")	
+
+	data = cursor.fetchall()	
+	row_headers=[x[0] for x in cursor.description]
+
+	cursor.close()
+
+	json_data=[]
+	for result in data:
+		json_data.append(dict(zip(row_headers,result)))					
+					
+	return jsonify(json_data)
+
+
+
 if __name__ == '__main__':
 	app.run(debug=True, port=5000)
 	
