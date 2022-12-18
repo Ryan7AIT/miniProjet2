@@ -116,7 +116,7 @@ function update_Pie(jsonData){
 		  labels: labels,
 		  datasets: [{
 			label: "Population (millions)",
-			backgroundColor: ["#3e95cd", "#8e5ea2"],
+			backgroundColor: ["#FFC0CB	", "#1A1ADA"],
 			data: data
 		  }]
 		},

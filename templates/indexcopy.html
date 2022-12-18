@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+		<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}"/>	
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+	</head>
+	<body>
+		<div class="grid-container">
+		  <header class="header">
+			<p id="dash-title">
+				MINI projet 2
+			</p>
+			<button id="btn_refresh" onclick="loadData()">
+				Actualiser
+			</button>
+		  </header>
+		  <aside class="sidenav">		
+			<div id="logo">
+				<!-- <img src="{{url_for('static', filename='img/logo.png')}}" height="40px" width="40px"/> -->
+				<p style="display:inline">M1 Big Data</p>
+			</div>			
+			<div id="menu">
+				<div><p>Summary</p></div>
+				<div><p>Add</p></div>
+				<div><p>Details</p></div>
+				<div><p>Logout</p></div>
+			</div>		
+		  </aside>
+		  <main class="main">
+			<div class="card" id="card1">	
+				<div class="card-header">
+					<p>Le nombre d'estudiant par specialite en 2021:</p>
+				</div>
+				<div class="card-content" id="cardTable">	
+					<div class="bigNumber" id="region1">
+						<p class="regionLabel"></p>
+						<p class="regionPop"></p>
+					</div>
+					<div class="bigNumber" id="region2">
+						<p class="regionLabel"></p>
+						<p class="regionPop"></p>
+					</div>
+					<div class="bigNumber" id="region3">
+						<p class="regionLabel"></p>
+						<p class="regionPop"></p>
+					</div>
+					<div class="bigNumber" id="region4">
+						<p class="regionLabel"></p>
+						<p class="regionPop"></p>
+					</div>
+					<div class="bigNumber"id="region5">
+						<p class="regionLabel"></p>
+						<p class="regionPop"></p>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="card" id="card3">	
+				<div class="card-header">
+					<p>Line Chart: Evolution of student per specialtie </p>
+				</div>
+				<div class="card-content" >
+					<canvas id="line-chart" height="300" width="800"></canvas>
+				</div>
+			</div>
+
+
+			<div class="card" id="card4">		
+				<div class="card-header">
+					<p>Pie Chart: percentage of student by sex</p>
+				</div>
+				<div class="card-content" >
+					<canvas id="pie-chart" height="210" width="400"></canvas>	
+				</div>
+			</div>
+
+
+
+
+		  </main>
+		  <footer class="footer"></footer>
+		</div>
+		
+		
+		
+		<!--
+		<div style="height: 300px; width: 300px; border:1px solid red; display:inline; float:left">
+			<div style="height: 100%; width: 100%; border:1px solid black">
+				<canvas id="bar-chart" width="300" height="300"></canvas>
+			</div>			
+		</div>
+		<div style="height: 300px; width: 300px; border:1px solid red; display:inline; float:left">
+			<div style="height: 100%; width: 100%; border:1px solid black">
+				<canvas id="line-chart" width="300" height="300"></canvas>
+			</div>			
+		</div>
+		
+		<div style="height: 300px; width: 300px; border:1px solid red; display:inline; float:left">
+			<div style="height: 100%; width: 100%; border:1px solid black">
+				<canvas id="pie-chart" width="300" height="300"></canvas>
+			</div>			
+		</div>
+		
+		<button onclick="loadData()">
+				Load
+		</button>-->
+		<script src="{{url_for('static', filename='script.js')}}"></script>
+	</body>
+</html>

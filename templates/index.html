@@ -6,106 +6,75 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 	</head>
 	<body>
-		<div class="grid-container">
-		  <header class="header">
-			<p id="dash-title">
-				MINI projet 2
-			</p>
-			<button id="btn_refresh" onclick="loadData()">
-				Actualiser
-			</button>
-		  </header>
-		  <aside class="sidenav">		
-			<div id="logo">
-				<!-- <img src="{{url_for('static', filename='img/logo.png')}}" height="40px" width="40px"/> -->
-				<p style="display:inline">M1 Big Data</p>
-			</div>			
-			<div id="menu">
-				<div><p>Summary</p></div>
-				<div><p>Add</p></div>
-				<div><p>Details</p></div>
-				<div><p>Logout</p></div>
-			</div>		
-		  </aside>
-		  <main class="main">
-			<div class="card" id="card1">	
-				<div class="card-header">
-					<p>Le nombre d'estudiant par specialite en 2021:</p>
+		<div class="container  justify-start">
+			<div class="sidebar w-96 bg-white ">
+				<div class="logo">
+					<img src="../static/img/logo.png" alt="">
+					<br>
+					Pravan University
 				</div>
-				<div class="card-content" id="cardTable">	
-					<div class="bigNumber" id="region1">
-						<p class="regionLabel"></p>
-						<p class="regionPop"></p>
+
+				<div class="links">
+					<p class="links_heading">Link section</p>
+					<div class="link">
+						<p>Link 1</p>
 					</div>
-					<div class="bigNumber" id="region2">
-						<p class="regionLabel"></p>
-						<p class="regionPop"></p>
+
+					<div class="link">
+						<p>Link 2</p>
 					</div>
-					<div class="bigNumber" id="region3">
-						<p class="regionLabel"></p>
-						<p class="regionPop"></p>
+
+					<div class="link">
+						<p>Link 3</p>
 					</div>
-					<div class="bigNumber" id="region4">
-						<p class="regionLabel"></p>
-						<p class="regionPop"></p>
-					</div>
-					<div class="bigNumber"id="region5">
-						<p class="regionLabel"></p>
-						<p class="regionPop"></p>
-					</div>
+
+					
+
 				</div>
 			</div>
+			<div class="main bg-gray-100">
+				<main>
+					<h3>Dashboard</h3>
+
+					<div class="head">
+						<div class="cards">
+							<div class="fline">
+								<div id="c1" class="card">
+									<div class="chead">
+										<p>Totall number</p>
+										<svg  fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+											</svg>
+											  
+									</div>
 
 
-			<div class="card" id="card3">	
-				<div class="card-header">
-					<p>Line Chart: Evolution of student per specialtie </p>
-				</div>
-				<div class="card-content" >
-					<canvas id="line-chart" height="300" width="800"></canvas>
-				</div>
+									2345
+								</div>
+								<div id="c2" class="card">
+									Card 2
+								</div>
+							</div>
+							<div class="sline">
+									
+								<div id="c3" class="card">
+									Card 3
+								</div>
+								<div id="c4" class="card">
+									Card 4
+								</div>
+							</div>
+						</div>
+						<div class="graphes">
+							<div class="graphe">
+								Graphe 1
+							</div>
+						</div>
+					</div>
+				</main>
+
 			</div>
-
-
-			<div class="card" id="card4">		
-				<div class="card-header">
-					<p>Pie Chart: percentage of student by sex</p>
-				</div>
-				<div class="card-content" >
-					<canvas id="pie-chart" height="210" width="400"></canvas>	
-				</div>
-			</div>
-
-
-
-
-		  </main>
-		  <footer class="footer"></footer>
 		</div>
-		
-		
-		
-		<!--
-		<div style="height: 300px; width: 300px; border:1px solid red; display:inline; float:left">
-			<div style="height: 100%; width: 100%; border:1px solid black">
-				<canvas id="bar-chart" width="300" height="300"></canvas>
-			</div>			
-		</div>
-		<div style="height: 300px; width: 300px; border:1px solid red; display:inline; float:left">
-			<div style="height: 100%; width: 100%; border:1px solid black">
-				<canvas id="line-chart" width="300" height="300"></canvas>
-			</div>			
-		</div>
-		
-		<div style="height: 300px; width: 300px; border:1px solid red; display:inline; float:left">
-			<div style="height: 100%; width: 100%; border:1px solid black">
-				<canvas id="pie-chart" width="300" height="300"></canvas>
-			</div>			
-		</div>
-		
-		<button onclick="loadData()">
-				Load
-		</button>-->
 		<script src="{{url_for('static', filename='script.js')}}"></script>
 	</body>
 </html>
