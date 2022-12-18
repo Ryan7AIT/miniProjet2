@@ -219,6 +219,37 @@ def doGetData6():
 	return jsonify(json_data)
 
 
+# the evolution of number of students by major
+
+@app.route('/api/data7')
+def doGetData7():
+	
+	data = {"years":[], "datasets":[]}
+	
+	conn = mysql.connect()	
+	cursor =conn.cursor()	
+	cursor.execute("select DISTINCT annee from resultats")	
+
+	years_tuple = cursor.fetchall()
+	years_list =  [item[0] for item in years_tuple]
+	data["years"]=years_list	
+
+	cursor.execute("SELECT DISTINCT specialite FROM resultats")	
+
+	region_tuple = cursor.fetchall()
+	region_list =  [item[0] for item in region_tuple]
+	
+	for region in region_list:
+		cursor.execute("select count(*) as number, annee  from resultats where specialite= '"+region+"' group by annee ")	
+		population_tuple = cursor.fetchall()
+		population_list =  [item[0] for item in population_tuple]
+		data["datasets"].append({"label":region, "data":population_list})	
+	
+	data_JSON = json.dumps(data)	
+	return data_JSON 	
+
+
+
 
 if __name__ == '__main__':
 	app.run(debug=True, port=5000)

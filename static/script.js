@@ -84,6 +84,20 @@ function loadData(){
 	};
 	httpRequest6.send();
 
+	// get the percentage of growin student per major (2019,2020,2021)
+
+	httpRequest7 = new XMLHttpRequest();	
+	httpRequest7.open('GET', '/api/data7');
+	httpRequest7.onreadystatechange = function () {
+		if (httpRequest7.readyState === 4 && httpRequest7.status === 200) {
+            
+            jsonData7 = JSON.parse(httpRequest7.response);
+			update_Lines1(jsonData7)	
+
+		}
+	};
+	httpRequest7.send();
+
 
 }
 
@@ -214,8 +228,8 @@ function update_Bars1(jsonData){
 		  labels: labels,
 		  datasets: [
 			{
-			  label: "Population (millions)",
-			  backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+			  label: "Nombre d'etudiants",
+			  backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#EADDCA", "#000000"],
 			  data: data
 			}
 		  ]
@@ -228,6 +242,40 @@ function update_Bars1(jsonData){
 			display: true,
 			text: 'Le Nombre detudiants par specialite'
 		  }
+		}
+	});
+}
+
+
+function update_Lines1(jsonData){
+	console.log(jsonData);
+	var labels = jsonData.years;
+	
+	for(d of jsonData.datasets){
+		d.fill = false;				  
+		d.borderColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+		d.borderWidth=2;
+		d.radius=1;			
+	}			
+	
+	var data = jsonData.datasets;
+
+	new Chart(document.getElementById("line-chart"), {
+		type: 'line',
+		data: {
+			labels: labels,
+			datasets: data
+		},
+		options: {
+			responsive: false,
+			maintainAspectRatio: true,
+			title: {
+				display: false,
+				text: 'le nombre destudiant'
+			},
+			legend:{
+				position:'top'
+			}
 		}
 	});
 }

@@ -34,18 +34,21 @@ margin: 0;
 }
 
 .logo {
-	padding: 60px 20px 20px 20px;
+	/* padding: 60px 20px 20px 20px; */
+	padding-top: 60px;
+	padding-bottom: 30px;
 	margin: auto;
 	width: 140px;
-	border-bottom: 1px solid gray;
+	border-bottom: 1px solid rgb(198, 198, 198);
+	font-weight: bold;
 	
 }
 
 
 .logo img {
-	width: 90px;
+	width: 110px;
 	border-radius: 50%;
-	border: 1px solid gray;
+	/* border: 1px solid gray; */
 
 }
 
@@ -72,7 +75,8 @@ margin: 0;
 
 
 .links .link p {
-	padding: 0px 30px;
+	padding: 5px 30px;
+
 }
 
 
@@ -127,7 +131,18 @@ margin: 0;
 
 .head .cards .card .chead svg {
 	width: 47px;
-	color: red;
+}
+
+.head .cards  #c1 svg {
+	color: rgb(239 68 68);;
+}
+
+.head .cards  #c2 svg {
+	color: rgb(59 130 246);
+}
+
+.head .cards  #c2 span {
+	font-size: x-small;
 }
 
 .head .cards .fline {
@@ -155,3 +170,18 @@ margin: 0;
 
 }
 
+/* begin body */
+
+.body .graphes{
+	width: 60%;
+}
+
+.body .graphes .graphe {
+	background-color: white;
+	width: 800px;
+	padding: 10px 20px;
+	margin: 10px ;
+	border-radius: 12px;
+	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+}
