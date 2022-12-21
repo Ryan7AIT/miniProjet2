@@ -99,6 +99,21 @@ function loadData(){
 	httpRequest7.send();
 
 
+	// number of student by year
+
+	httpRequest8 = new XMLHttpRequest();	
+	httpRequest8.open('GET', '/api/data8');
+	httpRequest8.onreadystatechange = function () {
+		if (httpRequest8.readyState === 4 && httpRequest8.status === 200) {
+            
+            jsonData8 = JSON.parse(httpRequest8.response);
+			update_Bars2(jsonData8)	
+
+		}
+	};
+	httpRequest8.send();
+
+
 }
 
 
@@ -276,6 +291,41 @@ function update_Lines1(jsonData){
 			legend:{
 				position:'top'
 			}
+		}
+	});
+}
+
+function update_Bars2(jsonData){	
+
+	var labels = jsonData.map(function(e) {
+	   return e.annee;
+	});
+	
+	var data = jsonData.map(function(e) {
+	   return e.number;
+	});
+	
+	
+	new Chart(document.getElementById("bar-chart2"), {
+		type: 'bar',
+		data: {
+		  labels: labels,
+		  datasets: [
+			{
+			  label: "Nombre d'etudiants",
+			  backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+			  data: data
+			}
+		  ]
+		},
+		options: {
+		  responsive: false,
+		  maintainAspectRatio: true,	
+		  legend: { display: false },
+		  title: {
+			display: true,
+			text: 'Le Nombre detudiants par annee'
+		  }
 		}
 	});
 }

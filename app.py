@@ -248,6 +248,25 @@ def doGetData7():
 	data_JSON = json.dumps(data)	
 	return data_JSON 	
 
+# number of students by year
+
+@app.route('/api/data8')
+def doGetData8():
+	conn = mysql.connect()	
+	cursor =conn.cursor()	
+	cursor.execute("select count(*) as number,  annee from resultats group by annee")	
+
+	data = cursor.fetchall()	
+	row_headers=[x[0] for x in cursor.description]
+
+	cursor.close()
+
+	json_data=[]
+	for result in data:
+		json_data.append(dict(zip(row_headers,result)))					
+					
+	return jsonify(json_data)
+
 
 
 
