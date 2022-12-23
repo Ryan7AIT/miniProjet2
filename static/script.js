@@ -248,7 +248,6 @@ function update_numberOfNewstudents(jsonData){
 }
 
 function update_numberOfgirls(jsonData){	
-	console.log(jsonData);
 	number = document.getElementsByClassName("girlsNumber")[0];
 	number.innerText = jsonData[0]["number"];
 

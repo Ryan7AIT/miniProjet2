@@ -254,7 +254,7 @@ def doGetData7():
 def doGetData8():
 	conn = mysql.connect()	
 	cursor =conn.cursor()	
-	cursor.execute("select count(*) as number from resultats WHERE annee = 2021")	
+	cursor.execute("select count(*) as number, annee from resultats group by annee")	
 
 	data = cursor.fetchall()	
 	row_headers=[x[0] for x in cursor.description]
