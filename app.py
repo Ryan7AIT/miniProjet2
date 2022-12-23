@@ -254,7 +254,7 @@ def doGetData7():
 def doGetData8():
 	conn = mysql.connect()	
 	cursor =conn.cursor()	
-	cursor.execute("select count(*) as number,  annee from resultats group by annee")	
+	cursor.execute("select count(*) as number from resultats WHERE annee = 2021")	
 
 	data = cursor.fetchall()	
 	row_headers=[x[0] for x in cursor.description]
@@ -267,6 +267,26 @@ def doGetData8():
 					
 	return jsonify(json_data)
 
+
+# number of girls in the school
+
+@app.route('/api/data9')
+def doGetData9():
+	conn = mysql.connect()	
+	cursor =conn.cursor()	
+	cursor.execute("select count(*) as number,  sexe from resultats group by sexe")
+
+
+	data = cursor.fetchall()	
+	row_headers=[x[0] for x in cursor.description]
+
+	cursor.close()
+
+	json_data=[]
+	for result in data:
+		json_data.append(dict(zip(row_headers,result)))					
+					
+	return jsonify(json_data)
 
 
 

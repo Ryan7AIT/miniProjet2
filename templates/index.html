@@ -34,7 +34,10 @@
 			</div>
 			<div class="main bg-gray-100">
 				<main>
-					<h3>Dashboard</h3>
+					<div class="nav flex">
+						<h3>Dashboard</h3>
+						<h3 onclick="actualiser()" class="actualiser">Actulaier</h3>
+					</div>
 
 					<div class="head">
 						<div class="cards">
@@ -68,10 +71,30 @@
 							<div class="sline">
 									
 								<div id="c3" class="card">
-									Card 3
+									<div class="chead">
+										<p>Le nombre  d'etudiants fills </p>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+										  </svg>
+										  
+											  
+									</div>
+
+
+									<p class="girlsNumber"></p>
 								</div>
 								<div id="c4" class="card">
-									Card 4
+									<div class="chead">
+										<p>Le nombre  d'etudiants garcon </p>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+										  </svg>
+										  
+											  
+									</div>
+
+
+									<p class="boysNumber"></p>
 								</div>
 							</div>
 						</div>
@@ -81,7 +104,7 @@
 									<p>Bar Chart: Les estudiant par speccialite </p>
 								</div>
 								<div class="card-content">	
-									<canvas id="bar-chart" height="290" width="440"></canvas>
+									<canvas id="bar-chart" height="290" width="540"></canvas>
 								</div>
 							</div>
 

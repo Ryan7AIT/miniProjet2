@@ -1,7 +1,12 @@
 loadData();
 
+
 function loadData(){	
-	// Requ�te AJAX get Persons
+
+	line = document.getElementById("bar-chart")
+	
+
+
 	httpRequest = new XMLHttpRequest();	
 	httpRequest.open('GET', '/api/data');
 	httpRequest.onreadystatechange = function () {
@@ -69,6 +74,23 @@ function loadData(){
 		}
 	};
 	httpRequest5.send();
+
+
+	// number of girls
+	httpRequest9 = new XMLHttpRequest();	
+	httpRequest9.open('GET', '/api/data9');
+	httpRequest9.onreadystatechange = function () {
+		if (httpRequest9.readyState === 4 && httpRequest9.status === 200) {
+			
+			jsonData9 = JSON.parse(httpRequest9.response);
+			// update_Bars(jsonData1);
+			update_numberOfgirls(jsonData9);	
+
+		}
+	};
+	httpRequest9.send();
+
+	// number of guys
 
 	// get numbers of sudent by major
 
@@ -225,6 +247,16 @@ function update_numberOfNewstudents(jsonData){
 	
 }
 
+function update_numberOfgirls(jsonData){	
+	console.log(jsonData);
+	number = document.getElementsByClassName("girlsNumber")[0];
+	number.innerText = jsonData[0]["number"];
+
+	number = document.getElementsByClassName("boysNumber")[0];
+	number.innerText = jsonData[1]["number"];
+	
+}
+
 
 function update_Bars1(jsonData){	
 
@@ -263,7 +295,6 @@ function update_Bars1(jsonData){
 
 
 function update_Lines1(jsonData){
-	console.log(jsonData);
 	var labels = jsonData.years;
 	
 	for(d of jsonData.datasets){
@@ -329,3 +360,12 @@ function update_Bars2(jsonData){
 		}
 	});
 }
+
+
+
+
+
+
+
+// front-end manipulaton
+

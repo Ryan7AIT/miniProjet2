@@ -29,8 +29,21 @@ margin: 0;
 	background-color: rgb(243 244 246);
 }
 
+/* navbar */
 
+.nav {
+	display: flex;
+	justify-content: space-between;
+}
 
+.actualiser {
+	cursor: pointer;
+}
+.actualiser:hover {
+	
+	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+	
+}
 /* start side bar */
 
 .sidebar {
@@ -103,6 +116,11 @@ margin: 0;
 	justify-content: flex-start;
 }
 
+.head {
+	width: 1250px;
+	margin: auto;
+}
+
 .head .cards {
 	width: 40%;
 }
@@ -110,7 +128,7 @@ margin: 0;
 .head .cards .card {
 	background-color: white;
 	width: 280px;
-	padding: 10px 20px;
+	padding: 16px 20px;
 	margin: 10px ;
 	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 	border-radius: 12px;
@@ -139,6 +157,10 @@ margin: 0;
 
 
 .head .cards .card .chead svg {
+	width: 47px;
+}
+
+.head .cards .card  svg {
 	width: 47px;
 }
 
@@ -171,8 +193,9 @@ margin: 0;
 
 .head .graphes .graphe {
 	background-color: white;
-	width: 480px;
+	width: 580px;
 	margin: 10px ;
+	margin-left: 30px;
 	border-radius: 12px;
 	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 
@@ -180,9 +203,7 @@ margin: 0;
 
 /* begin body */
 
-.body .graphes{
-	/* width: 60%; */
-}
+
 
 .body .graphes .graphe {
 	background-color: white;
