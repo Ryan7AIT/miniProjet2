@@ -27,6 +27,8 @@ margin: 0;
 
 .card-header {
 	background-color: rgb(243 244 246);
+		padding: 11px 20px;
+	margin-bottom: 10px;
 }
 
 /* navbar */
@@ -134,10 +136,7 @@ margin: 0;
 
 }
 
-.head .graphes .card-header {
-	padding: 11px 20px;
-	margin-bottom: 10px;
-}
+
 
 .head .cards .card > p {
 	font-weight: bold;
@@ -226,7 +225,7 @@ margin: 0;
 }
 
 .body .graphes .g3 {
-	width: 310px;
+	width: 440px;
 }
 
 
@@ -237,4 +236,13 @@ margin: 0;
 .body-graphes {
 	display: flex;
 	align-items: stretch;
+}
+
+.body #pie {
+	padding-bottom: 12px;
+	background-color: white;
+	width: 420px;
+	margin: 10px ;
+	border-radius: 12px;
+	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }

@@ -290,6 +290,35 @@ def doGetData9():
 
 
 
+
+
+
+# pie to repesnet hwo many succes and fails
+
+@app.route('/api/data10')
+def doGetData10():
+	conn = mysql.connect()	
+	cursor =conn.cursor()	
+	cursor.execute("select count(nom) as nomber_de_success, annee from resultats  where  moyenne > 10  group by annee")	
+
+	data = cursor.fetchall()	
+	row_headers=[x[0] for x in cursor.description]
+
+	cursor.close()
+
+	json_data=[]
+	for result in data:
+		json_data.append(dict(zip(row_headers,result)))					
+					
+	return jsonify(json_data)
+
+
+
+
+
+
+
+
 if __name__ == '__main__':
 	app.run(debug=True, port=5000)
 	

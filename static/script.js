@@ -4,6 +4,23 @@ loadData();
 function loadData(){	
 
 	line = document.getElementById("bar-chart")
+	chart2 = document.getElementById("bar-chart2")
+	line2 = document.getElementById("line-chart")
+
+
+	line.setAttribute("style", " ")
+	line.setAttribute("width", "540")
+	line.setAttribute("height", "270")
+
+	chart2.setAttribute("style", " ")
+	chart2.setAttribute("width", "390")
+	chart2.setAttribute("height", "290")
+
+	line2.setAttribute("style", " ")
+	line2.setAttribute("width", "500")
+	line2.setAttribute("height", "300")
+
+
 	
 
 
@@ -135,6 +152,18 @@ function loadData(){
 	};
 	httpRequest8.send();
 
+	// number of student who got the year and fails
+
+	httpRequest10 = new XMLHttpRequest();	
+	httpRequest10.open('GET', '/api/data10');
+	httpRequest10.onreadystatechange = function () {
+		if (httpRequest10.readyState === 4 && httpRequest10.status === 200) {
+			jsonData10 = JSON.parse(httpRequest10.response);
+			update_Pie10(jsonData10);
+		}
+	};
+	httpRequest10.send();
+
 
 }
 
@@ -196,12 +225,13 @@ function update_BigNumbers(jsonData){
 
 
 function update_Pie(jsonData){
+	console.log(jsonData);
 	var labels = jsonData.map(function(e) {
-	   return e.sexe;
+	   return e.annee;
 	});
 	
 	var data = jsonData.map(function(e) {
-	   return e.number;
+	   return e.nomber_de_success;
 	});
 	
 	new Chart(document.getElementById("pie-chart"), {
@@ -362,6 +392,46 @@ function update_Bars2(jsonData){
 
 
 
+
+
+
+
+
+
+// pie 10 
+
+function update_Pie10(jsonData){
+	var labels = jsonData.map(function(e) {
+	   return e.annee;
+	});
+	
+	var data = jsonData.map(function(e) {
+	   return e.nomber_de_success;
+	});
+	
+	new Chart(document.getElementById("pie-chart"), {
+		type: 'pie',
+		data: {
+		  labels: labels,
+		  datasets: [{
+			label: "Nombre d'etudiant",
+			backgroundColor: ["#24addc	", "#24dc51", "#Dc2427"],
+			data: data
+		  }]
+		},
+		options: {
+		  responsive: false,
+		  maintainAspectRatio: true,
+		  title: {
+			display: false,
+			text: 'number of success par annee'
+		  },
+		  legend:{
+			position:'right'
+		  }
+		}
+	});	
+}
 
 
 
