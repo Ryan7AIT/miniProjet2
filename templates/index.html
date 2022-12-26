@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<div class="container  justify-start">
-			<div class="sidebar w-96 bg-white ">
+			<div class="sidebar  bg-white ">
 				<div class="logo">
 					<img src="../static/img/logo1.png" alt="">
 					<br>
@@ -33,10 +33,26 @@
 				</div>
 			</div>
 			<div class="main bg-gray-100">
+				<nav>
+					<div class="left">
+						<p>Pravan <span>></span> Dashboard</p>
+					</div>
+					<div class="nav_links">
+						<img src="../static/img/avatar.jpg" alt="avatr">
+						<p>Admin</p>
+					</div>
+				</nav>
 				<main>
 					<div class="nav flex">
-						<h3>Dashboard</h3>
-						<h3 onclick="loadData()" class="actualiser">Actulaier</h3>
+						<h3>Information sur pravan university</h3>
+						<div onclick="loadData()" class="reload">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+							</svg>
+							<h3  class="actualiser">Actulaier</h3>
+
+							  
+						</div>
 					</div>
 
 					<div class="head">
@@ -114,27 +130,31 @@
 					</div>
 
 					<div class="body">
-						<div class="graphes body-graphes">
-							<div class="graphe g2">
-								<div class="card-header">
-									<p>Line Chart: Evolution des etudiants par specialitee</p>
+						<div class="number_by_year">
+
+							<div class="graphes body-graphes">
+								<div class="graphe g2">
+									<div class="card-header">
+										<p>Line Chart: Evolution des etudiants par specialitee</p>
+									</div>
+									<div class="card-content" >
+										<canvas class="chart" id="line-chart" height="300" width="600"></canvas>
+									</div>
 								</div>
-								<div class="card-content" >
-									<canvas class="chart" id="line-chart" height="300" width="500"></canvas>
-								</div>
-							</div>
 
 
-							<div class="graphe g3">
-								<div class="card-header">
-									<p>Bar Chart: le nombre étudiants par années </p>
+								<div class="graphe g3">
+									<div class="card-header">
+										<p>Bar Chart: le nombre étudiants par années </p>
+									</div>
+									<div class="card-content">	
+										<canvas class="chart" id="bar-chart2" height="290" width="410"></canvas>
+									</div>
 								</div>
-								<div class="card-content">	
-									<canvas class="chart" id="bar-chart2" height="290" width="390"></canvas>
-								</div>
+								
 							</div>
-							
 						</div>
+						
 
 						<div class="card" id="pie">		
 							<div class="card-header">

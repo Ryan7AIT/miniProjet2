@@ -13,11 +13,11 @@ function loadData(){
 	line.setAttribute("height", "270")
 
 	chart2.setAttribute("style", " ")
-	chart2.setAttribute("width", "390")
+	chart2.setAttribute("width", "410")
 	chart2.setAttribute("height", "290")
 
 	line2.setAttribute("style", " ")
-	line2.setAttribute("width", "500")
+	line2.setAttribute("width", "600")
 	line2.setAttribute("height", "300")
 
 
@@ -420,7 +420,7 @@ function update_Pie10(jsonData){
 		  }]
 		},
 		options: {
-		  responsive: false,
+		  responsive: true,
 		  maintainAspectRatio: true,
 		  title: {
 			display: false,
@@ -438,3 +438,18 @@ function update_Pie10(jsonData){
 
 // front-end manipulaton
 
+let scrollpos = window.scrollY
+
+const nav = document.querySelector("nav")
+const scrollChange = 50
+
+const add_class_on_scroll = () => nav.classList.add("opacity")
+const remove_class_on_scroll = () => nav.classList.remove("opacity")
+
+window.addEventListener('scroll', function() {
+  scrollpos = window.scrollY;
+
+  if (scrollpos >= scrollChange) { add_class_on_scroll() }
+  else {remove_class_on_scroll()}
+  
+})

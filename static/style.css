@@ -1,5 +1,5 @@
 body {
-	color: rgb(17 24 39);
+	color: var(--black);
 	font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
@@ -8,12 +8,27 @@ padding: 0;
 margin: 0;
 }
 
+.container {
+	display: flex;
+	justify-content: start;
+}
+
+
+/* some variables */
+
+:root {
+	--blue: rgb(59 130 246);
+	--grey: rgb(243 244 246);
+	--white: rgb(255 255 255);
+	--black: rgb(17 24 39);
+  }
+
 .bg-gray-100 {
-	background-color: rgb(243 244 246);
+	background-color: var(--grey);
 }
 
 .bg-white{
-	background-color: rgb(255 255 255);
+	background-color: var(--white);
 }
 
 .justify-start {
@@ -26,7 +41,7 @@ margin: 0;
 }
 
 .card-header {
-	background-color: rgb(243 244 246);
+	background-color: var(--grey);
 		padding: 11px 20px;
 	margin-bottom: 10px;
 }
@@ -36,6 +51,7 @@ margin: 0;
 .nav {
 	display: flex;
 	justify-content: space-between;
+	color: var(--blue);
 }
 
 .actualiser {
@@ -44,10 +60,54 @@ margin: 0;
 .actualiser:hover {
 	box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
+
+/* nav bar */
+
+
+.opacity {
+	opacity: 0.8;
+}
+
+nav {
+	background-color: var(--white);
+	padding: 8px 40px 8px 40px;
+	display: flex;
+	justify-content: space-between;
+	position: fixed;
+	
+	width: 80%;
+
+}
+
+nav .nav_links {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+nav .nav_links p {
+	font-size: smaller;
+	font-weight: 400;
+}
+
+nav img {
+	width: 44px;
+	border-radius: 50%;
+}
+
+nav .left {
+	margin-top: 10px;
+}
+
 /* start side bar */
 
 .sidebar {
 	height:100vh;
+	/* width: 1300px; */
+	/* width: 222px; */
+	width: 15%;
+	position: fixed;
+
 }
 
 .logo {
@@ -73,7 +133,7 @@ margin: 0;
 }
 
 .links .links_heading {
-	color: rgb(153, 153, 153) ;
+	color: var(--grey) ;
 	font-weight: 400;
 	margin-bottom: 25px;
 	padding: 0px 30px;
@@ -85,7 +145,7 @@ margin: 0;
 }
 
 .links .link:hover {
-	background-color: rgb(243 244 246);
+	background-color: var(--grey);
 	cursor: pointer;
 }
 
@@ -99,11 +159,35 @@ margin: 0;
 
 /* start main contents */
 
+.reload {
+	display: flex;
+	justify-content: flex-start;
+	color: var(--blue);
+	cursor: pointer;
+
+}
+
+.reload svg {
+	width: 18px;
+	padding-right: 8px;
+	padding-bottom: 5px;
+}
+
+
+main {
+	/* width:90%; */
+	padding: 20px 40px;
+	margin: auto;
+	/* width: 1300px; */
+	/* width: 50%; */
+	margin-top: 55px;
+
+
+}
 
 .main {
-	width:90%;
-	padding: 20px;
-
+	width: 85%;
+	margin-left: 15%;
 }
 
 .main h3 {
@@ -116,7 +200,7 @@ margin: 0;
 }
 
 .head {
-	width: 1250px;
+	width: 100%;
 	margin: auto;
 }
 
@@ -127,10 +211,11 @@ margin: 0;
 }
 
 .head .cards .card {
-	background-color: white;
+	background-color: var(--white);
 	width: 280px;
 	padding: 16px 20px;
 	margin: 10px ;
+	/* margin-left: 0; */
 	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 	border-radius: 12px;
 
@@ -192,7 +277,7 @@ margin: 0;
 }
 
 .head .graphes .graphe {
-	background-color: white;
+	background-color: var(--white);
 	width: 580px;
 	margin: 10px ;
 	margin-left: 30px;
@@ -206,7 +291,7 @@ margin: 0;
 
 
 .body .graphes .graphe {
-	background-color: white;
+	background-color: var(--white);
 	/* width: 820px; */
 	margin: 10px ;
 	border-radius: 12px;
@@ -215,7 +300,7 @@ margin: 0;
 }
 
 .body .graphes .g2 {
-	width: 560px;
+	width: 625px;
 
 }
 
@@ -240,9 +325,13 @@ margin: 0;
 
 .body #pie {
 	padding-bottom: 12px;
-	background-color: white;
+	background-color: var(--white);
 	width: 420px;
 	margin: 10px ;
 	border-radius: 12px;
 	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.number_by_year {
+
 }
