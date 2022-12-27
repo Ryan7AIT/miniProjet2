@@ -273,6 +273,41 @@ def doGetData10():
 
 
 
+# nmber of fail and succes by year
+
+
+# number of students by year
+
+@app.route('/api/data11')
+def doGetData11():
+	conn = mysql.connect()	
+	cursor =conn.cursor()	
+	# cursor.execute("IF EXISTS(SELECT * FROM   temp1) DROP TABLE temp1  ")	
+	# cursor.execute("IF EXISTS(SELECT * FROM   temp2) DROP TABLE temp2  ")	
+
+
+
+	# cursor.execute("create table temp1 as select count(nom) as nomber_de_success, annee  from resultats  where  moyenne > 10  group by annee ;")	
+
+
+	# cursor.execute(" create table temp2 as 	select count(nom) as nomber_de_failed, annee  from resultats  where  moyenne < 10  group by annee ;")
+
+	cursor.execute("select * from temp1 join temp2 on temp1.annee = temp2.annee;")	
+
+	data = cursor.fetchall()	
+	row_headers=[x[0] for x in cursor.description]
+
+	cursor.close()
+
+	json_data=[]
+	for result in data:
+		json_data.append(dict(zip(row_headers,result)))					
+					
+	return jsonify(json_data)
+
+
+
+
 
 
 if __name__ == '__main__':

@@ -165,6 +165,25 @@ function loadData(){
 	httpRequest10.send();
 
 
+
+	// bar chart of fails and succes
+
+
+		// number of student by year
+
+		httpRequest11 = new XMLHttpRequest();	
+		httpRequest11.open('GET', '/api/data11');
+		httpRequest11.onreadystatechange = function () {
+			if (httpRequest11.readyState === 4 && httpRequest11.status === 200) {
+				
+				jsonData11 = JSON.parse(httpRequest11.response);
+				update_Bars3(jsonData11)	
+	
+			}
+		};
+		httpRequest11.send();
+
+
 }
 
 
@@ -200,6 +219,7 @@ function update_Lines(jsonData){
 			}
 		}
 	});
+
 }
 
 
@@ -432,6 +452,93 @@ function update_Pie10(jsonData){
 		}
 	});	
 }
+
+
+
+// bar 3 (fails and succed)
+
+function update_Bars3(jsonData){
+
+	var labels = jsonData.map(function(e) {
+	   return e.annee;
+	});
+	
+	var data = jsonData.map(function(e) {
+	   return e.nomber_de_success;
+	});
+
+	var data2 = jsonData.map(function(e) {
+		return e.nomber_de_failed;
+	 });
+	 console.log(data);
+	 console.log(data2);
+
+
+	
+	
+	new Chart(document.getElementById("bar-chart5"), {
+		type: 'bar',
+		data: {
+		  labels: labels,
+		  datasets: [
+			{
+			  label: "Nombre d'etudiants",
+			  backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+			  data: data,
+			  stack: 'Stack 0'
+			}
+			,
+			{
+			label: "Nombre d'etudiants",
+			backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+			data: data2,
+			stack: 'Stack 1'
+			}
+			
+		  ]
+		},
+		options: {
+			scales: {
+				x: {
+				  stacked: true,
+				},
+				y: {
+				  stacked: true
+				}
+			  },	
+		  responsive: false,
+		  maintainAspectRatio: true,	
+		  legend: { display: false },
+		  title: {
+			display: true,
+			text: 'Le Nombre detudiants par annee'
+		  }
+		}
+	});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
