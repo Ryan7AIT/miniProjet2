@@ -6,6 +6,8 @@ function loadData(){
 	line = document.getElementById("bar-chart")
 	chart2 = document.getElementById("bar-chart2")
 	line2 = document.getElementById("line-chart")
+	chart5 = document.getElementById("bar-chart5")
+
 
 
 	line.setAttribute("style", " ")
@@ -20,6 +22,9 @@ function loadData(){
 	line2.setAttribute("width", "600")
 	line2.setAttribute("height", "300")
 
+	chart5.setAttribute("style", " ")
+	chart5.setAttribute("width", "510")
+	chart5.setAttribute("height", "290")
 
 	
 
@@ -325,7 +330,7 @@ function update_Bars1(jsonData){
 		  datasets: [
 			{
 			  label: "Nombre d'etudiants",
-			  backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#EADDCA", "#000000"],
+			  backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#EC1313", "#E9EC13", "#000000"],
 			  data: data
 			}
 		  ]
@@ -393,7 +398,7 @@ function update_Bars2(jsonData){
 		  datasets: [
 			{
 			  label: "Nombre d'etudiants",
-			  backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+			  backgroundColor: ["#0075F9", "#13ECD5","#EC1313"],
 			  data: data
 			}
 		  ]
@@ -470,10 +475,6 @@ function update_Bars3(jsonData){
 	var data2 = jsonData.map(function(e) {
 		return e.nomber_de_failed;
 	 });
-	 console.log(data);
-	 console.log(data2);
-
-
 	
 	
 	new Chart(document.getElementById("bar-chart5"), {
@@ -482,15 +483,15 @@ function update_Bars3(jsonData){
 		  labels: labels,
 		  datasets: [
 			{
-			  label: "Nombre d'etudiants",
-			  backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+			  label: "Nombre d'etudiants success",
+			  backgroundColor: ["#0075F9", "#0075F9","#0075F9"],
 			  data: data,
 			  stack: 'Stack 0'
 			}
 			,
 			{
-			label: "Nombre d'etudiants",
-			backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+			label: "Nombre d'etudiants failed",
+			backgroundColor: ["#EC1313", "#EC1313","#EC1313"],
 			data: data2,
 			stack: 'Stack 1'
 			}
@@ -560,3 +561,45 @@ window.addEventListener('scroll', function() {
   else {remove_class_on_scroll()}
   
 })
+
+
+function showModel() {
+	var element = document.getElementById("seetings_model");
+	element.classList.toggle("hidden");
+ }
+
+ var light = document.getElementById("light");
+
+ light.addEventListener('click', function(){
+	console.log(87777);
+ });
+
+ var r = document.querySelector(':root');
+
+
+ var dark = document.getElementById("dark");
+
+ dark.addEventListener('click', function(){
+	console.log(87777);
+	r.style.setProperty('--white', 'black');
+
+ });
+
+
+
+ // Get the root element
+
+// Create a function for getting a variable value
+function myFunction_get() {
+  // Get the styles (properties and values) for the root
+  var rs = getComputedStyle(r);
+  // Alert the value of the --blue variable
+  alert("The value of --blue is: " + rs.getPropertyValue('--blue'));
+}
+
+// Create a function for setting a variable value
+function myFunction_set() {
+  // Set the value of variable --blue to another value (in this case "lightblue")
+  r.style.setProperty('--blue', 'lightblue');
+}
+
