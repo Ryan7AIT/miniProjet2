@@ -571,7 +571,17 @@ function showModel() {
  var light = document.getElementById("light");
 
  light.addEventListener('click', function(){
-	console.log(87777);
+	r.style.setProperty('--blue', 'rgb(59 130 246)');
+	r.style.setProperty('--white', 'rgb(255 255 255)');
+	r.style.setProperty('--grey', 'rgb(243 244 246)');
+	r.style.setProperty('--bgrey', 'rgb(75 85 99)');
+	r.style.setProperty('--black', 'rgb(17 24 39)');
+
+	var light = document.getElementById("light");
+
+
+
+
  });
 
  var r = document.querySelector(':root');
@@ -580,8 +590,21 @@ function showModel() {
  var dark = document.getElementById("dark");
 
  dark.addEventListener('click', function(){
-	console.log(87777);
-	r.style.setProperty('--white', 'black');
+	r.style.setProperty('--white', 'rgb(17 24 39)');
+	r.style.setProperty('--blue', 'rgb(59 130 246)');
+	r.style.setProperty('--grey', 'rgb(75 85 99)');
+	r.style.setProperty('--bgrey', 'rgb(75 85 99)');
+	r.style.setProperty('--black', 'rgb(255 255 255)');
+
+	var light = document.getElementById("light");
+
+	light.style.color = "white"
+	light.style.backgroundColor= "black"
+
+
+
+
+
 
  });
 

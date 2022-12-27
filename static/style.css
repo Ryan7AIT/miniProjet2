@@ -22,6 +22,15 @@ margin: 0;
 	--white: rgb(255 255 255);
 	--black: rgb(17 24 39);
 	--bgrey: rgb(75 85 99);
+
+
+	/* --blue: rgb(59 130 246);
+	--grey: rgb(75 85 99);
+	--white: rgb(17 24 39);
+	--black: rgb(255 255 255);
+	--bgrey: rgb(75 85 99); */
+
+
   }
 
 .bg-gray-100 {
