@@ -478,3 +478,28 @@ main {
 	display: none;
 }
 
+
+/* footer */
+
+footer {
+	/* width: 80%; */
+
+	background-color: white;
+	padding: 20px 40px;
+	display: flex;
+	justify-content: space-between;
+
+}
+
+.numbers_info div {
+	display: flex;
+	justify-content: start;
+	padding-top: 5px;
+}
+
+.numbers_info div svg {
+	width: 15px;
+	color: var(--blue);
+	padding-top: 3px;
+	padding-right: 6px;
+}

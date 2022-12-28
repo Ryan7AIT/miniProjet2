@@ -286,8 +286,6 @@ function update_Pie(jsonData){
 
 
 
-
-
 // new ...
 
 function update_numberOfstudents(jsonData){	
@@ -330,7 +328,7 @@ function update_Bars1(jsonData){
 		  datasets: [
 			{
 			  label: "Nombre d'etudiants",
-			  backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#EC1313", "#E9EC13", "#000000"],
+			  backgroundColor: ["#3e95cd", "#8e5ea2","#13ECD5","#e8c3b9","#EC1313", "#158301", "#000000"],
 			  data: data
 			}
 		  ]
@@ -341,7 +339,7 @@ function update_Bars1(jsonData){
 		  legend: { display: false },
 		  title: {
 			display: true,
-			text: 'Le Nombre detudiants par specialite'
+			text: "Nombre d'etudiants par specialitee"
 		  }
 		}
 	});
@@ -369,10 +367,6 @@ function update_Lines1(jsonData){
 		options: {
 			responsive: false,
 			maintainAspectRatio: true,
-			title: {
-				display: false,
-				text: 'le nombre destudiant'
-			},
 			legend:{
 				position:'top'
 			}
@@ -409,16 +403,11 @@ function update_Bars2(jsonData){
 		  legend: { display: false },
 		  title: {
 			display: true,
-			text: 'Le Nombre detudiants par annee'
+			text: 'Nombre étudiants par années'
 		  }
 		}
 	});
 }
-
-
-
-
-
 
 
 
@@ -483,14 +472,14 @@ function update_Bars3(jsonData){
 		  labels: labels,
 		  datasets: [
 			{
-			  label: "Nombre d'etudiants success",
-			  backgroundColor: ["#0075F9", "#0075F9","#0075F9"],
+			  label: "Nombre d'etudiants réussit",
+			  backgroundColor: ["#13ECD5", "#13ECD5","#13ECD5"],
 			  data: data,
 			  stack: 'Stack 0'
 			}
 			,
 			{
-			label: "Nombre d'etudiants failed",
+			label: "Nombre d'etudiants échoué",
 			backgroundColor: ["#EC1313", "#EC1313","#EC1313"],
 			data: data2,
 			stack: 'Stack 1'
@@ -502,9 +491,6 @@ function update_Bars3(jsonData){
 			scales: {
 				x: {
 				  stacked: true,
-				},
-				y: {
-				  stacked: true
 				}
 			  },	
 		  responsive: false,
@@ -577,8 +563,16 @@ function showModel() {
 	r.style.setProperty('--bgrey', 'rgb(75 85 99)');
 	r.style.setProperty('--black', 'rgb(17 24 39)');
 
+	var dark = document.getElementById("dark");
+
+	dark.style.backgroundColor= "black"
+	dark.style.color= "white"
+
+
 	var light = document.getElementById("light");
 
+	light.style.color = "black"
+	light.style.backgroundColor= "white"
 
 
 
@@ -598,8 +592,8 @@ function showModel() {
 
 	var light = document.getElementById("light");
 
-	light.style.color = "white"
-	light.style.backgroundColor= "black"
+	light.style.color = "black"
+	light.style.backgroundColor= "white"
 
 
 
