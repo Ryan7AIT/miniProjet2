@@ -416,7 +416,7 @@ function update_Bars2(jsonData){
 
 function update_Pie10(jsonData){
 	var labels = jsonData.map(function(e) {
-	   return e.annee;
+	   return e.sexe;
 	});
 	
 	var data = jsonData.map(function(e) {
