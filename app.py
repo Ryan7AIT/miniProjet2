@@ -27,90 +27,90 @@ app = Flask(__name__)
 def index():
 	return render_template('index.html')
 	
-# @app.route('/api/data')
-# def doGetData():
-# 	conn = mysql.connect()	
-# 	cursor =conn.cursor()	
-# 	cursor.execute("select count(*) as number,  specialite from resultats group by specialite")	
+@app.route('/api/data')
+def doGetData():
+	conn = mysql.connect()	
+	cursor =conn.cursor()	
+	cursor.execute("select count(*) as number,  specialite from resultats group by specialite")	
 
-# 	data = cursor.fetchall()	
-# 	row_headers=[x[0] for x in cursor.description]
+	data = cursor.fetchall()	
+	row_headers=[x[0] for x in cursor.description]
 
-# 	cursor.close()
+	cursor.close()
 
-# 	json_data=[]
-# 	for result in data:
-# 		json_data.append(dict(zip(row_headers,result)))					
+	json_data=[]
+	for result in data:
+		json_data.append(dict(zip(row_headers,result)))					
 					
-# 	return jsonify(json_data)
+	return jsonify(json_data)
 	
-# 	#data_JSON = json.dumps(data2)	
-# 	#sreturn data_JSON 	
+	data_JSON = json.dumps(data2)	
+	return data_JSON 	
 	
 
 
-# @app.route('/api/data3')
-# def doGetData3():
-# 	conn = mysql.connect()	
-# 	cursor =conn.cursor()	
-# 	cursor.execute("SELECT count(*) as number, sexe  FROM resultats  group by sexe")	
+@app.route('/api/data3')
+def doGetData3():
+	conn = mysql.connect()	
+	cursor =conn.cursor()	
+	cursor.execute("SELECT count(*) as number, sexe  FROM resultats  group by sexe")	
 
-# 	data = cursor.fetchall()	
-# 	row_headers=[x[0] for x in cursor.description]
+	data = cursor.fetchall()	
+	row_headers=[x[0] for x in cursor.description]
 
-# 	cursor.close()
+	cursor.close()
 
-# 	json_data=[]
-# 	for result in data:
-# 		json_data.append(dict(zip(row_headers,result)))					
+	json_data=[]
+	for result in data:
+		json_data.append(dict(zip(row_headers,result)))					
 					
-# 	return jsonify(json_data)
+	return jsonify(json_data)
 	
-# 	#data_JSON = json.dumps(data2)	
-# 	#sreturn data_JSON 	
+	data_JSON = json.dumps(data2)	
+	return data_JSON 	
 
 
 
 
-# @app.route('/api/data2')
-# def doGetData2():
+@app.route('/api/data2')
+def doGetData2():
 	
-# 	data = {"years":[], "datasets":[]}
+	data = {"years":[], "datasets":[]}
 	
-# 	conn = mysql.connect()	
-# 	cursor =conn.cursor()	
-# 	cursor.execute("SELECT DISTINCT annee FROM resultats")	
+	conn = mysql.connect()	
+	cursor =conn.cursor()	
+	cursor.execute("SELECT DISTINCT annee FROM resultats")	
 
-# 	years_tuple = cursor.fetchall()
-# 	years_list =  [item[0] for item in years_tuple]
-# 	data["years"]=years_list	
+	years_tuple = cursor.fetchall()
+	years_list =  [item[0] for item in years_tuple]
+	data["years"]=years_list	
 
-# 	cursor.execute("SELECT DISTINCT specialite FROM resultats")	
+	cursor.execute("SELECT DISTINCT specialite FROM resultats")	
 
-# 	region_tuple = cursor.fetchall()
-# 	region_list =  [item[0] for item in region_tuple]
+	region_tuple = cursor.fetchall()
+	region_list =  [item[0] for item in region_tuple]
 	
-# 	for region in region_list:
-# 		# cursor.execute("SELECT population FROM population_stats WHERE region='"+region+"'")	
-# 		cursor.execute("SELECT count(*) as number  FROM  resultats   WHERE specialite='"+region+"'")	
+	for region in region_list:
+		# cursor.execute("SELECT population FROM population_stats WHERE region='"+region+"'")	
+		cursor.execute("SELECT count(*) as number  FROM  resultats   WHERE specialite='"+region+"'")	
 
-# 		population_tuple = cursor.fetchall()
+		population_tuple = cursor.fetchall()
 
-# 		c=[]
+		c=[]
 
-# 		for y in years_list:
-# 			cursor.execute("SELECT count(*) as number  FROM  resultats   WHERE specialite='"+region+"' and annee='"+str(y)+"' ")	
+		for y in years_list:
+			cursor.execute("SELECT count(*) as number  FROM  resultats   WHERE specialite='"+region+"' and annee='"+str(y)+"' ")	
 
-# 			student_by_year = cursor.fetchall()
-# 			student_by_year_list = [item[0] for item in student_by_year]
+			student_by_year = cursor.fetchall()
+			student_by_year_list = [item[0] for item in student_by_year]
 
-# 			c.append(student_by_year_list[0])
+			c.append(student_by_year_list[0])
 		
-# 		population_list =  [item[0] for item in population_tuple]
-# 		data["datasets"].append({"label":region, "data":c})	
+		population_list =  [item[0] for item in population_tuple]
+		data["datasets"].append({"label":region, "data":c})	
 	
-# 	data_JSON = json.dumps(data)	
-# 	return data_JSON 	
+	data_JSON = json.dumps(data)	
+	return data_JSON 	
 
 # new
 
@@ -175,7 +175,7 @@ def doGetData6():
 	return jsonify(json_data)
 
 
-# the evolution of number of students by major
+# the evolution of number of students by year
 
 @app.route('/api/data7')
 def doGetData7():
@@ -273,10 +273,8 @@ def doGetData10():
 
 
 
-# nmber of fail and succes by year
+# number of fail and succes by year
 
-
-# number of students by year
 
 @app.route('/api/data11')
 def doGetData11():

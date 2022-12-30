@@ -40,7 +40,7 @@ function loadData(){
 
 		}
 	};
-	httpRequest.send();
+	// httpRequest.send();
 
 	httpRequest2 = new XMLHttpRequest();	
 	httpRequest2.open('GET', '/api/data2');
@@ -50,7 +50,7 @@ function loadData(){
 			// update_Lines(jsonData2);
 		}
 	};
-	httpRequest2.send();
+	// httpRequest2.send();
 
 	httpRequest3 = new XMLHttpRequest();	
 	httpRequest3.open('GET', '/api/data3');
@@ -60,7 +60,7 @@ function loadData(){
 			// update_Pie(jsonData1);
 		}
 	};
-	httpRequest3.send();
+	// httpRequest3.send();
 
 
 // new
@@ -429,7 +429,7 @@ function update_Pie10(jsonData){
 		  labels: labels,
 		  datasets: [{
 			label: "Nombre d'etudiant",
-			backgroundColor: ["#24addc	", "#24dc51", "#Dc2427"],
+			backgroundColor: ["#24addc	", "#24dc51"],
 			data: data
 		  }]
 		},
@@ -437,8 +437,8 @@ function update_Pie10(jsonData){
 		  responsive: true,
 		  maintainAspectRatio: true,
 		  title: {
-			display: false,
-			text: 'number of success par annee'
+			display: true,
+			text: "nombre d'hommes et de femmes"
 		  },
 		  legend:{
 			position:'right'
@@ -498,7 +498,7 @@ function update_Bars3(jsonData){
 		  legend: { display: false },
 		  title: {
 			display: true,
-			text: 'Le Nombre detudiants par annee'
+			text: "nombre d'étudiants qui ont échoué et réussi par an"
 		  }
 		}
 	});
