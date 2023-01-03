@@ -3,12 +3,12 @@ loadData();
 
 function loadData(){	
 
+
+	// those lines to fix refreshing  bug
 	line = document.getElementById("bar-chart")
 	chart2 = document.getElementById("bar-chart2")
 	line2 = document.getElementById("line-chart")
 	chart5 = document.getElementById("bar-chart5")
-
-
 
 	line.setAttribute("style", " ")
 	line.setAttribute("width", "540")
@@ -26,44 +26,6 @@ function loadData(){
 	chart5.setAttribute("width", "510")
 	chart5.setAttribute("height", "290")
 
-	
-
-
-	httpRequest = new XMLHttpRequest();	
-	httpRequest.open('GET', '/api/data');
-	httpRequest.onreadystatechange = function () {
-		if (httpRequest.readyState === 4 && httpRequest.status === 200) {
-            
-            jsonData1 = JSON.parse(httpRequest.response);
-			// update_Bars(jsonData1);
-		    // update_BigNumbers(jsonData1);	
-
-		}
-	};
-	// httpRequest.send();
-
-	httpRequest2 = new XMLHttpRequest();	
-	httpRequest2.open('GET', '/api/data2');
-	httpRequest2.onreadystatechange = function () {
-		if (httpRequest2.readyState === 4 && httpRequest2.status === 200) {
-			jsonData2 = JSON.parse(httpRequest2.response);
-			// update_Lines(jsonData2);
-		}
-	};
-	// httpRequest2.send();
-
-	httpRequest3 = new XMLHttpRequest();	
-	httpRequest3.open('GET', '/api/data3');
-	httpRequest3.onreadystatechange = function () {
-		if (httpRequest3.readyState === 4 && httpRequest3.status === 200) {
-			jsonData1 = JSON.parse(httpRequest3.response);
-			// update_Pie(jsonData1);
-		}
-	};
-	// httpRequest3.send();
-
-
-// new
 
 
 // get number of students 
@@ -74,7 +36,6 @@ function loadData(){
 		if (httpRequest4.readyState === 4 && httpRequest4.status === 200) {
 			
 			jsonData4 = JSON.parse(httpRequest4.response);
-			// update_Bars(jsonData1);
 			update_numberOfstudents(jsonData4);	
 
 		}
@@ -98,7 +59,7 @@ function loadData(){
 	httpRequest5.send();
 
 
-	// number of girls
+	// number of females students
 	httpRequest9 = new XMLHttpRequest();	
 	httpRequest9.open('GET', '/api/data9');
 	httpRequest9.onreadystatechange = function () {
@@ -112,7 +73,7 @@ function loadData(){
 	};
 	httpRequest9.send();
 
-	// number of guys
+	// number of men students
 
 	// get numbers of sudent by major
 
@@ -128,7 +89,7 @@ function loadData(){
 	};
 	httpRequest6.send();
 
-	// get the percentage of growin student per major (2019,2020,2021)
+	// get the percentage of growing student per major (2019,2020,2021)
 
 	httpRequest7 = new XMLHttpRequest();	
 	httpRequest7.open('GET', '/api/data7');
@@ -174,19 +135,19 @@ function loadData(){
 	// bar chart of fails and succes
 
 
-		// number of student by year
+	// number of student by year
 
-		httpRequest11 = new XMLHttpRequest();	
-		httpRequest11.open('GET', '/api/data11');
-		httpRequest11.onreadystatechange = function () {
-			if (httpRequest11.readyState === 4 && httpRequest11.status === 200) {
-				
-				jsonData11 = JSON.parse(httpRequest11.response);
-				update_Bars3(jsonData11)	
-	
-			}
-		};
-		httpRequest11.send();
+	httpRequest11 = new XMLHttpRequest();	
+	httpRequest11.open('GET', '/api/data11');
+	httpRequest11.onreadystatechange = function () {
+		if (httpRequest11.readyState === 4 && httpRequest11.status === 200) {
+			
+			jsonData11 = JSON.parse(httpRequest11.response);
+			update_Bars3(jsonData11)	
+
+		}
+	};
+	httpRequest11.send();
 
 
 }
